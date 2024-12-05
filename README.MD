@@ -2,7 +2,7 @@
 
 This chatbot example demonstrates how to integrate the Model Context Protocol (MCP) into a simple CLI chatbot. The implementation showcases MCP's flexibility by supporting multiple tools through MCP servers and is compatible with any LLM provider that follows OpenAI API standards.
 
-If you find this project helpful. Don’t forget to ⭐ star the [repository](https://github.com/3choff/mcp-chatbot) or buying me a ☕ [coffee](https://ko-fi.com/3choff).
+If you find this project helpful, don’t forget to ⭐ star the [repository](https://github.com/3choff/mcp-chatbot) or buy me a ☕ [coffee](https://ko-fi.com/3choff).
 
 ## Key Features
 
