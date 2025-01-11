@@ -20,8 +20,9 @@ class Configuration:
     def __init__(self) -> None:
         """Initialize configuration with environment variables."""
         self.load_env()
-        self.api_key = os.getenv("GROQ_API_KEY")
+        # self.api_key = os.getenv("GROQ_API_KEY")
         # self.api_key = os.getenv("GITHUB_API_KEY")
+        self.api_key = os.getenv("OPENAI_API_KEY")
 
     @staticmethod
     def load_env() -> None:
@@ -250,29 +251,30 @@ class LLMClient:
         Raises:
             RequestException: If the request to the LLM fails.
         """
-        url = "https://api.groq.com/openai/v1/chat/completions"
+        # url = "https://api.groq.com/openai/v1/chat/completions"
         # url = "https://models.inference.ai.azure.com/chat/completions"
+        url = "https://api.openai.com/v1/chat/completions"
 
         headers = {
             "Content-Type": "application/json",
             "Authorization": f"Bearer {self.api_key}"
         }
-        payload = {
-            "messages": messages,
-            "model": "llama-3.2-90b-vision-preview",
-            "temperature": 0.7,
-            "max_tokens": 4096,
-            "top_p": 1,
-            "stream": False,
-            "stop": None
-        }
         # payload = {
         #     "messages": messages,
-        #     "temperature": 1.0,
-        #     "top_p": 1.0,
-        #     "max_tokens": 4000,
-        #     "model": "gpt-4o-mini"
+        #     "model": "llama-3.2-90b-vision-preview",
+        #     "temperature": 0.7,
+        #     "max_tokens": 4096,
+        #     "top_p": 1,
+        #     "stream": False,
+        #     "stop": None
         # }
+        payload = {
+            "messages": messages,
+            "temperature": 1.0,
+            "top_p": 1.0,
+            "max_tokens": 4000,
+            "model": "gpt-4o-mini"
+        }
         
         try:
             response = requests.post(url, headers=headers, json=payload)
